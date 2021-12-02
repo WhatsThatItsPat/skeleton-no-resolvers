@@ -7,11 +7,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <app-skeleton-card name="Page1Card1" [numberOfItems]="3"></app-skeleton-card>
+  <app-skeleton-card name="Page1Card2" [numberOfItems]="6"></app-skeleton-card>
+  <app-skeleton-card name="Page1Card3" [numberOfItems]="2"></app-skeleton-card>
+  <!-- <app-skeleton-card name="Page1Card4" [numberOfItems]="2"></app-skeleton-card> -->
+
+  <pre class="ion-padding">store: {{ store$ | async | json}}</pre>
+
 </ion-content>

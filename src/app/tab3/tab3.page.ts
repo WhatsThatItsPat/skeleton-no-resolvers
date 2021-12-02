@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StoreIshService } from '../store-ish.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  store$ = this.storeIsh.store$;
+
+  constructor(
+    private storeIsh: StoreIshService,
+  ) {}
+
+  doRefresh(event) {
+    this.storeIsh.refreshCards(['Page3Card1', 'Page3Card2']);
+    event.target.complete();
+  }
 
 }
