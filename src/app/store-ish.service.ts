@@ -47,7 +47,6 @@ export class StoreIshService {
         }
       }),
       // Prevent initial empty value from getting through
-      // ...but doesn't on the refresh?
       filter(selector => !!selector),
       shareReplay(),
     );
@@ -85,9 +84,6 @@ export class StoreIshService {
   }
 
 
-  /**
-   * The refresh isn't perfect. loadCard ends up being called multiple times.
-   */
   refreshCards(cardNames: string[]) {
     cardNames.forEach(name => {
       this.loadCard(name);
