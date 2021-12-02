@@ -1,0 +1,7 @@
+{
+  "name": "skeleton-no-resolvers",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
