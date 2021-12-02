@@ -15,7 +15,12 @@ export class Tab2Page {
   ) {}
 
   doRefresh(event) {
-    this.storeIsh.refreshCards(['Page2Card1', 'Page2Card2', 'Page2Card2', 'Page2Card2']);
+    this.storeIsh.refreshCards([
+      'Page2Card1',
+      'Page2Card2',
+      'Page2Card3',
+      'Page2Card4'
+    ]);
     event.target.complete();
   }
 

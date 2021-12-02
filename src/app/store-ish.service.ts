@@ -89,16 +89,10 @@ export class StoreIshService {
    * The refresh isn't perfect. loadCard ends up being called multiple times.
    */
   refreshCards(cardNames: string[]) {
-    const currentStore = this.storeSubject.value;
-    // const currentStore = {...this.storeSubject.value};
-    // console.log(`currentStore before deleting:`, {...currentStore});
     cardNames.forEach(name => {
-      delete currentStore[name];
+      this.loadCard(name);
     });
-    // console.log(`currentStore after deleting:`, {...currentStore});
-    this.storeSubject.next({
-      ...currentStore
-    });
+
   }
 
   timestamp() {

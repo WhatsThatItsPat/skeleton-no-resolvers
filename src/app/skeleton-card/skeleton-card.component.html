@@ -4,13 +4,20 @@
     <ion-card-header>
       <ion-card-title>{{name}}</ion-card-title>
     </ion-card-header>
-  
-    <ion-list>
+    
+    <ion-list *ngIf="(hasError$ | async) !== true; else showError">
       <ion-item
         *ngFor="let item of [].constructor(numberOfItems); last as isLast;"
         [lines]="isLast ? 'none' : ''"
       >{{data$ | async}}</ion-item>
     </ion-list>
+
+    <ng-template #showError>
+      <div class="error">
+        <h2>Oops!</h2>
+      </div>
+    </ng-template>
+
   </ng-container>
 
   <ng-template #notLoaded>
@@ -29,17 +36,6 @@
       </ion-item>
     </ion-list>
   </ng-template>
-
-  <!-- <ion-card-header>
-    <ion-card-title>{{name}}</ion-card-title>
-  </ion-card-header>
-
-  <ion-list>
-    <ion-item
-      *ngFor="let item of [].constructor(numberOfItems); last as isLast;"
-      [lines]="isLast ? 'none' : ''"
-    >hmm: {{item}} / isLast: {{isLast}}</ion-item>
-  </ion-list> -->
   
   <!-- <pre class="ion-padding">mySelector$: {{mySelector$ | async | json}}</pre> -->
   <!-- <pre class="ion-padding">isLoaded$: {{isLoaded$ | async | json}}</pre> -->
